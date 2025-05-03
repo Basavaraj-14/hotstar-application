@@ -15,8 +15,8 @@ provider "aws" {
 }
 
 # create security group for the ec2 instance
-resource "aws_security_group" "ec2_security_group" {
-  name        = "ec2 security group"
+resource "aws_security_group" "ec2_security_group1" {
+  name        = "ec2 security group1"
   description = "allow access on ports 22"
 
   # allow access on port 22
@@ -43,7 +43,7 @@ resource "aws_security_group" "ec2_security_group" {
 resource "aws_instance" "Monitoring_server" {
 ami = "ami-084568db4383264d4"  
 instance_type = "t2.medium"
-security_groups = [aws_security_group.ec2_security_group.name]
+security_groups = [aws_security_group.ec2_security_group1.name]
 key_name = "terra"
 tags = {
   Name: var.instance_name
