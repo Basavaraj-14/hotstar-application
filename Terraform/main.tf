@@ -18,7 +18,7 @@ provider "aws" {
 resource "aws_security_group" "ec2_security_group" {
   name        = "ec2 security group"
   description = "allow access on ports 22"
-  vpc_id      = "vpc-09c1d483d9adab190"
+  vpc_id      = "vpc-07d66003a54a238160"
 
   # allow access on port 22
   ingress {
@@ -44,6 +44,7 @@ resource "aws_security_group" "ec2_security_group" {
 resource "aws_instance" "Monitoring_server" {
 ami = "ami-084568db4383264d4"  
 instance_type = "t2.medium"
+subnet_id = "subnet-0cd36559b9e8f1aa1"
 vpc_security_group_ids = [aws_security_group.ec2_security_group.id]
 key_name = "terra"
 tags = {
