@@ -44,7 +44,7 @@ resource "aws_security_group" "ec2_security_group" {
 resource "aws_instance" "Monitoring_server" {
 ami = "ami-084568db4383264d4"  
 instance_type = "t2.medium"
-security_groups = [aws_security_group.ec2_security_group.name]
+vpc_security_group_ids = [aws_security_group.ec2_security_group.id]
 key_name = "terra"
 tags = {
   Name: var.instance_name
