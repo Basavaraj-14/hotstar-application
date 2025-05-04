@@ -45,7 +45,7 @@ ami = "ami-084568db4383264d4"
 instance_type = "t2.medium"
 subnet_id = "subnet-0cd36559b9e8f1aa1"
 vpc_security_group_ids = [aws_security_group.ec2_security_group.id]
-key_name = "terra"
+key_name = var.key_name
 tags = {
   Name: var.instance_name
 }
