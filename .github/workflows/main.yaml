@@ -24,8 +24,8 @@ jobs:
       # Step 3: Build and Push Docker Image
       - name: Build and Push Docker Image
         run: |
-          docker build -t basavaraj1234/hotstar-app:latest .
-          docker push basavaraj1234/hotstar-app:latest
+          docker build -t basavaraj1234/hotstar:latest .
+          docker push basavaraj1234/hotstar:latest
 
       # Step 4: Configure AWS Credentials (IAM Role or User)
       - name: Configure AWS Credentials
@@ -42,5 +42,5 @@ jobs:
       # Step 6: Deploy to Kubernetes
       - name: Deploy to Kubernetes
         run: |
-          kubectl set image deployment/hotstar-app hotstar-app=basavaraj1234/hotstar-app:latest
-          kubectl rollout status deployment/hotstar-app
+          kubectl set image deployment/hotstar hotstar=basavaraj1234/hotstar:latest
+          kubectl rollout status deployment/hotstar
